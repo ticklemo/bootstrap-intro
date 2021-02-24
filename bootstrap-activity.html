@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <style>
 
       .one {
@@ -20,6 +21,17 @@
         max-width: 20rem;
       }
 
+      .card-a {
+        overflow: hidden;
+        transition-duration: 2s;
+        transition-property: transform;
+      }
+      .spin-time {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        cursor: pointer;
+      }
+
     </style>
     <title>Hello, world!</title>
   </head>
@@ -27,7 +39,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-2 one">col-2</div>
+        <div class="col-2 one first-col">col-2</div>
         <div class="col-2 one">col-2</div>
         <div class="col-2 one">col-2</div>
         <div class="col-2 one">col-2</div>
@@ -38,60 +50,95 @@
         <div class="col-4 one">col-4</div>
         <div class="col-4 offset-4 one">col-4</div>
       </div>
+
       <div class="row">
 
         <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="#" class="card-img-top" alt="...">
+          <div class="card card-a" style="width: 18rem;">
+            <a href="https://placeholder.com"><img src="https://via.placeholder.com/500/c6dfed/606d71?text=this+is+a+placeholder" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-            <button type="button" class="btn btn-info">Button</button>
+            <button type="button" id="btnA" class="btn btn-info">Button</button>
           </div>
 
         </div>
         <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="#" class="card-img-top" alt="...">
+          <div class="card card-b" style="width: 18rem;">
+            <a href="https://placeholder.com"><img src="https://via.placeholder.com/500/c6dfed/606d71?text=this+is+a+placeholder" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-            <button type="button" class="btn btn-info">Button</button>
-          </div>
-        </div>
-
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <button type="button" class="btn btn-info">Button</button>
+            <button type="button" id="btnB" class="btn btn-info">Button</button>
           </div>
         </div>
 
         <div class="col-3">
           <div class="card" style="width: 18rem;">
-            <img src="#" class="card-img-top" alt="...">
+            <a href="https://placeholder.com"><img src="https://via.placeholder.com/500/c6dfed/606d71?text=this+is+a+placeholder" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
-            <button type="button" class="btn btn-info">Button</button>
+            <button type="button" id="btnC" class="btn btn-info">Button</button>
           </div>
         </div>
+
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <a href="https://placeholder.com"><img src="https://via.placeholder.com/500/c6dfed/606d71?text=this+is+a+placeholder" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <button type="button" id="btnD" class="btn btn-info">Button</button>
+          </div>
+        </div>
+
       </div>
-
+      <!-- row end -->
 
     </div>
+    <!-- container end -->
 
     <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <script>
+      $('document').ready(function(){
+
+        $('#btnA').click(function(){
+          $('.card-a').addClass('spin-time');
+          // adds the class to make it spin and then just like does it for you wow wow
+        });
+        // adds the spin-time class to the card upon clicking btnA - method adds a class to an element
+
+        $('#btnB').click(function(){
+          // css method jQuery allows  us to change css properties and values. (display = property, none= value)
+          $('.card-b').css('display', 'none');
+          $('#btnB').hide();
+        });
+
+        $('#btnC').click(function(){
+          $('.card-b').css('display', 'inline-block');
+          $('#btnB').show();
+        });
+
+        $('#btnD').click(function(){
+          $('.first-col').css('background-color', '#c08cd2');
+        });
+
+      });
+      // document ready end
+
+
+
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
